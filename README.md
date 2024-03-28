@@ -1,14 +1,29 @@
-## Como rodar
+# Deterministic Finite Automaton Implementation (DFA)
 
-- Ter JDK 21 instalado
-- Acesse o [repositório](https://github.com/dantas15/dfa-implementation) para a versão mais atualizada :)
+- [Veja o README em português!](./LEIAME.md)
+
+## Requirements
+
+- JDK 21
+
+## How to run
+
+- go to `src` dir
+
+```bash
+cd src
+```
+
+- compile .java files
 
 ```bash
 javac *.java
 ```
 
+- run App
+
 ```bash
-java App.java
+java App
 ```
 
-- Utilize as referências em [examples.md](./examples.md)
+- Use the inputs and words examples from the [examples.md file](./examples.md)
