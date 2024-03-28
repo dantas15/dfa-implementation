@@ -10,9 +10,21 @@ public class Main {
   }
 
   public void execute() {
+    System.out
+        .println("States separated by spaces (should start with q and have a number after.For example: q0 q1 q2 q3) ");
     automaton.setStates(input.nextLine().split(" "));
-    for (String s : automaton.getStates()) {
-      System.out.println(s);
-    }
+
+    System.out.println("Alphabet separated by spaces (For example: a b c)");
+    automaton.setAlphabet(input.nextLine().split(" "));
+
+    System.out.println("Transitions as tuples separated by spaces - For example: (q0 asdfasdfasdfa b c)");
+    System.out.println("Transitions as tuples separated by spaces - For example: (q0 asdfasdfasdfa b c)");
+
+    System.out
+        .println(
+            "Acceptance states separated by spaces (should start with q and have a number after. For example: q0 q3) ");
+    automaton.setAcceptanceStates(input.nextLine().split(" "));
+
+    input.close();
   }
 }
