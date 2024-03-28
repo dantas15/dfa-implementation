@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class DFA {
   private ArrayList<String> states;
@@ -50,9 +52,18 @@ public class DFA {
     return transitions;
   }
 
-  public void setTransitions(String[] transitions) {
-    // TODO Implement this
-    throw new Error("Implement transition");
+  public void setTransitions(String unparsedTransitions) {
+    Pattern pattern = Pattern.compile("\\((.*?)\\)");
+    Matcher matcher = pattern.matcher(unparsedTransitions);
+
+    while (matcher.find()) {
+      String[] transition = matcher.group(1).split(" ");
+      if (transition.length == 3) {
+        transitions.add(new Triple(transition[0], transition[1], transition[2]));
+      } else {
+        throw new Error("Invalid transition format");
+      }
+    }
   }
 
   public String getInitialState() {
@@ -76,17 +87,16 @@ public class DFA {
   }
 
   private void printArrayList(String title, ArrayList<String> array) {
-    System.out.println(title + ": {");
-    for (int i = 0; i < array.size(); i++) {
-      System.out.print(" " + array.get(i));
-      if (i != array.size() - 1) {
-        System.out.print(",");
-      }
+    System.out.print(title + ": {\n");
+    for (String s : array) {
+      System.out.print("\t" + s + "\n");
     }
-    System.out.print(" }");
+
+    System.out.print(" }\n");
   }
 
   public void printAutomataData() {
+    System.out.println("\n---BEGIN Print Automata Data---");
     printArrayList("States", states);
     printArrayList("Alphabet", alphabet);
 
@@ -99,5 +109,6 @@ public class DFA {
 
     System.out.println("Initial state: " + initialState);
     printArrayList("Acceptance states", acceptanceStates);
+    System.out.println("\n---END Print Automata Data---");
   }
 }

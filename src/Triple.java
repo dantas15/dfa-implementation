@@ -5,11 +5,11 @@ public class Triple {
 
   public final String key;
 
-  public Triple(String x, String y, String z) {
-    this.key = "(" + x + "," + y + "," + z + ")";
-    this.x = x;
-    this.y = y;
-    this.z = z;
+  public Triple(String fromState, String valueRead, String toState) {
+    this.key = "(" + fromState + "," + valueRead + "," + toState + ")";
+    this.x = fromState;
+    this.y = valueRead;
+    this.z = toState;
   }
 
   public String fromState() {

@@ -1,6 +1,6 @@
 public class App {
     public static void main(String[] args) throws Exception {
-        Main dfaApp = new Main();
+        Program dfaApp = new Program();
         dfaApp.execute();
     }
 }
