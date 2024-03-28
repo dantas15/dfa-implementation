@@ -29,3 +29,13 @@ q0
 ```
 q0
 ```
+
+### Word examples
+
+- should accept
+  - `0110`
+  - ``
+  - `1010`
+should not acccept
+  - `1`
+  - `0100`
