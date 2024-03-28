@@ -111,4 +111,33 @@ public class DFA {
     printArrayList("Acceptance states", acceptanceStates);
     System.out.println("\n---END Print Automata Data---");
   }
+
+  private String getNextState(String currentState, String symbol) {
+    for (Triple transition : transitions) {
+      if (transition.fromState().equals(currentState) && transition.valueRead().equals(symbol)) {
+        return transition.toState();
+      }
+    }
+    return null; // If no transition is found for the current state and symbol
+  }
+
+  public boolean execute(String word) {
+    String currentState = this.initialState;
+
+    for (int i = 0; i < word.length(); i++) {
+      // get the current symbol (letter, number, etc..)
+      String symbol = word.substring(i, i + 1);
+
+      String nextState = getNextState(currentState, symbol);
+
+      // if no transition is found, input is invalid
+      if (nextState == null) {
+        return false;
+      }
+
+      currentState = nextState;
+    }
+
+    return acceptanceStates.contains(currentState);
+  }
 }
