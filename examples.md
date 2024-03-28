@@ -39,3 +39,45 @@ q0
 should not acccept
   - `1`
   - `0100`
+
+## Word contains "aba"
+
+- states
+
+```
+q0 q1 q2 q3
+```
+
+- alphabet
+
+```
+a b
+```
+
+- transitions
+
+```
+(q0 a q1) (q0 b q0) (q1 a q1) (q1 b q2) (q2 a q3) (q2 b q0) (q3 a q3) (q3 b q3)
+```
+
+- initial state
+
+```
+q0
+```
+
+- acceptance states
+
+```
+q3
+```
+
+### Word examples
+
+- should accept
+  - `aba`
+  - `aaaababb`
+  - `bbbaabbaba`
+should not acccept
+  - ``
+  - `aabbaa`
